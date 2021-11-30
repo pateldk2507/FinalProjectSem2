@@ -1,0 +1,30 @@
+.row {
+    display: table;
+    width: 95%; /*Optional*/
+    /* table-layout: fixed; Optional */
+    border-spacing: 10px; /*Optional*/
+    background-color: gray;
+    margin: auto;
+}
+.column {
+    display: table-cell;
+    background-color: red; /*Optional*/
+}
+
+.heading{
+    margin: auto;
+    width: 95%;
+    background-color: rgb(156, 151, 156);
+}
+
+body{
+    background-color: rgb(207, 204, 204);
+}
+
+.left-filters{
+    width: 25%;
+}
+
+.img-container{
+    width: 45%;
+}
