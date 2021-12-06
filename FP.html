@@ -6,35 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project- Art Filters</title>
     <link rel="stylesheet" href="FP.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
     
-    <div class="heading">
-        <h3>Art Filters</h3>
-    </div>
+    
+        <div class="heading">
+            <h3>Art Filters</h3>
+        </div>
+    
+        <div class="row">
 
-<div class="row">
+            <!-- Filter Section goes here -->
+            <div class="filters">
 
-    <div class="column">
-    <div class="left-filters">
-        All filter settings
-    </div>
-</div>
+                <form action="">
+                <label for="opecity">Opecity</label> <br>
+                <input type="range" class="slider" id="opecity" name="opecity"  aria-valuemin="0" aria-valuemax="100" value="100" > <span id="perOpecity">100%</span>
+                <br><br>
+                <label for="Saturation">Saturation</label> <br>
+                <input type="range" class="slider" id="Saturation" name="Saturation" aria-valuemin="0" aria-valuemax="100" value="0"> <span id="perSaturation">0%</span>
+                <br><br>
+                <label for="Brightness">Brightness</label> <br>
+                <input type="range" class="slider" id="Brightness" name="Brightness" aria-valuemin="0" aria-valuemax="100" value="50"> <span id="perBrightness">50%</span>
+                <br><br>
+                <label for="Hue">Hue Rotate</label> <br>
+                <input type="range" class="slider" id="Hue" name="Hue" aria-valuemin="0" aria-valuemax="360" value="0"> <span id="perHue">0deg</span>
+                <br><br>
+                <label for="Grayscale">Grayscale</label> <br>
+                <input type="range" class="slider" id="Grayscale" name="Grayscale" aria-valuemin="0" aria-valuemax="100" value="0"> <span id="perGrayscale">0%</span>
+                <br><br>
+                <label for="Blur">Blur</label> <br>
+                <input type="range" class="slider" id="Blur" name="Blur" aria-valuemin="0" aria-valuemax="100" value="0">  <span id="perBlur">0%</span>
+                <br><br>
+                <input type="reset" value="Reset" onclick="clearText();" class="btnReset">
 
-<div class="column">
-    <div class="img-container">
-            image container
-    </div>
+                            </form>
+            </div>
 
-</div>
+            <!-- main image section goes here -->
+            <div class="main-img">
+                    <!-- <img src="" alt="" srcset=""> -->
+                    <figure>
+                        <img src="./FP_images/medium/painting1.jpg" id="myImage" height="500px" alt="" srcset="">
+                        <figcaption id="figCap">First Paint</figcaption>
+                    </figure>
 
-<div class="column">
-    <div class="list-images">
+            </div>
 
-        list of images
-    </div>
+            <!-- All list of images goes here -->
+            <div class="list-images">
+                
+                <img src="./FP_images/small/painting1.jpg" onclick="changeImg('1');" alt="image 1"><br>
+                <img src="./FP_images/small/painting2.jpg" onclick="changeImg('2');" alt="image 2"><br>
+                <img src="./FP_images/small/painting3.jpg" onclick="changeImg('3');" alt="image 3"><br>
+                <img src="./FP_images/small/painting4.jpg" onclick="changeImg('4');" alt="image 4"><br>
+                <img src="./FP_images/small/painting5.jpg" onclick="changeImg('5');" alt="image 5"><br>
 
-    </div>
-</div>
+            </div>
+        
+        </div>
+
+
+        <script src="FP.js"></script>
 </body>
 </html>
