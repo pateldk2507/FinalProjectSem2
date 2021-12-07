@@ -1,41 +1,71 @@
+var opecity=100,saturate=0,brightness="100%",hue=0,grayscale=0,blur_=0;
+
 $(document).on('input', '#opecity', function() {
         $('#perOpecity').html( $(this).val() + "%" );
-        $('#myImage').css("opacity", $(this).val()/100);
+        opecity = $('#perOpecity').text();
+        Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+        // $('#myImage').css("opacity", $(this).val()/100);
 
 });
 
 $(document).on('input', '#Saturation', function() {
     $('#perSaturation').html( $(this).val() + "%" );
-    $('#myImage').css("filter", "saturate(" + $(this).val() + ")");
+    saturate = $(this).val();
+    Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+    // $('#myImage').css("filter", "saturate(" + $(this).val() + ")");
 });
 
 $(document).on('input', '#Brightness', function() {
-    $('#perBrightness').html( $(this).val() + "%" );
-    $('#myImage').css("filter", "brightness(" + $(this).val()/50 + ")");
+    $('#perBrightness').html( $(this).val() * 2 + "%" );
+    brightness =    $('#perBrightness').text();
+    Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+    // $('#myImage').css("filter", "brightness(" + brightness + ")");
 });
 
 $(document).on('input', '#Hue', function() {
     $('#perHue').html( $(this).val() +"deg");
-    $('#myImage').css("filter", "hue-rotate(" + $(this).val() + "deg)");
+    hue =  $('#perHue').text();
+    Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+    // $('#myImage').css("filter", "hue-rotate(" + $(this).val() + "deg)");
 });
 
 $(document).on('input', '#Grayscale', function() {
     $('#perGrayscale').html( $(this).val() +"%" );
-    $('#myImage').css("filter", "grayscale(" + $(this).val()+ "%)");
+    grayscale =   $('#perGrayscale').text();
+    Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+    // $('#myImage').css("filter", "grayscale(" + $(this).val()+ "%)");
 });
 
 $(document).on('input', '#Blur', function() {
-    $('#perBlur').html( $(this).val() +"px");
-    Filters();
-    // $('#myImage').css("filter", "blur(" + $(this).val()/50+ "px)");
-    // $('#myImage').css('-webkit-filter','grayscale(20%)  blur(1px)');
+    $('#perBlur').html( $(this).val() +"px" );
+    blur_ = $('#perBlur').text();
+    Filters(opecity,saturate,brightness,hue,grayscale,blur_);
+    
 });
         
 
-function Filters(opecity,saturation,brightness,hue,grayscale,blur) {
-    $('#myImage').css('-webkit-filter','grayscale('+ $('#perGrayscale').val() +')  blur('+ $('#perBlur').val()+')');
+function Filters(opecity_,saturation_,brightness_,hue_,grayscale_,blur) {
+    console.log("O" + opecity_);
+    console.log("s" + saturation_); 
+    console.log("B" + brightness_);
+    console.log("H" + hue_ );
+    console.log("G" + grayscale_);
+    console.log("B" + blur);
 
+
+
+    if(saturation_ == 0){
+        saturation_ = 1;
+    }
+
+    $('#myImage').css({
+        "opacity" : opecity_,
+        "filter" : "saturate("+saturation_ +")",
+        "filter" : "brightness("+ brightness_+")",
+        "filter" : "hue-rotate("+hue_+")",
+    });
 }
+
 
 function clearText() {
     $('#perOpecity').html("0%");
