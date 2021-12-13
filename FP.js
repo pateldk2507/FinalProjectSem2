@@ -43,14 +43,6 @@ $(document).on('input', '#Blur', function() {
         
 
 function Filters(opecity_,saturation_,brightness_,hue_,grayscale_,blur) {
-    console.log("O" + opecity_);
-    console.log("s" + saturation_); 
-    console.log("B" + brightness_);
-    console.log("H" + hue_ );
-    console.log("G" + grayscale_);
-    console.log("B" + blur);
-
-
 
     if(saturation_ == 0){
         saturation_ = 1;
@@ -65,6 +57,7 @@ function Filters(opecity_,saturation_,brightness_,hue_,grayscale_,blur) {
 
 function clearText() {
     opecity=100,saturate=0,brightness="100%",hue=0,grayscale=0,blur_=0;
+    $('#myForm').trigger("reset");
     $('#perOpecity').html("100%");
     $('#perSaturation').html("0%");
     $('#perBrightness').html("50%");
@@ -80,6 +73,7 @@ function clearText() {
 var caption = ['First Paint','Second Paint','Third  Paint', 'Forth Paint', 'Fifth Paint'];
 
 function changeImg(id) {
+    clearText();
     $('#myImage').attr('src','./FP_images/medium/painting' + id + '.jpg');
     $('#figCap').html(caption[id - 1]);   
 }
